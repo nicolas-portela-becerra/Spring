@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+	<title>Tabla para listar jugadores</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<h1>LISTA DE JUGADORES</h1>
+		<img th:src="@{/images/logoVacantes.png}" width=136 height=136>
+		<table class="table table-striped table-bordered table-hover">
+			<tr>
+				<th>ID</th>
+				<th>NOMBRE</th>
+				<th>FECHA</th>		
+				<th>POSICION</th>
+				<th>EQUIPO</th>
+				<th>DETALLLE</th>
+				<th>BORRAR</th>
+			</tr>
+			<tr th:each="v : ${listaVacantes}">
+				<td>
+					<img th:src="@{/images/{img} (img = ${v.imagen})}" width=136 height=136>
+				</td>
+				<td th:text="${v.id}"></td>
+				<td th:text="${v.nombre}"></td>
+				<td th:text="${v.descripcion}"></td>
+				<td th:text="${v.fecha}"></td>
+				<td th:text="${v.salario}"></td>
+				<td>
+					<span th:if="${v.destacado == true}" class="badge bg-success">SI</span>
+					<span th:unless="${v.destacado == true}" class="badge bg-danger">NO</span>
+				</td>
+				<td>
+					<a th:href="@{/vacantes/view/{id} (id = ${v.id})}" class="btn btn-success">Detalle</a>
+				</td>
+				<td>
+					<a th:href="@{/vacantes/delete(id = ${v.id})}" class="btn btn-danger">Borrar</a>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>
