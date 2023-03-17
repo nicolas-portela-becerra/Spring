@@ -7,4 +7,6 @@ import com.npb.futbol.modelos.Jugador;
 public interface IJugadoresServicio {
 	List<Jugador> findAll();
 	Jugador saveJugador(Jugador jugador);
+	void deleteJugador(int id);
+	Jugador findById(int id);
 }

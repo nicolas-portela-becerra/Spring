@@ -1,12 +1,14 @@
 package com.npb.futbol.modelos;
 
+import org.springframework.stereotype.Component;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 
+@Component
 @Entity
 public class Equipo {
 	@Id
@@ -15,11 +17,12 @@ public class Equipo {
 	@Column
 	private String nombre;
 	
-	public Integer getCodigo() {
+
+	public Integer getCodigo_equipo() {
 		return codigo_equipo;
 	}
-	public void setCodigo(Integer codigo) {
-		this.codigo_equipo = codigo;
+	public void setCodigo_equipo(Integer codigo_equipo) {
+		this.codigo_equipo = codigo_equipo;
 	}
 	public String getNombre() {
 		return nombre;
@@ -30,6 +33,6 @@ public class Equipo {
 
 	@Override
 	public String toString() {
-		return "Equipo [codigo=" + codigo_equipo + ", nombre=" + nombre + "]";
+		return "Equipo [codigo_equipo=" + codigo_equipo + ", nombre=" + nombre + "]";
 	}
 }

@@ -35,7 +35,7 @@ public class EquiposServicioImpl implements IEquiposServicio {
 
 	@Override
 	public Equipo updateEquipo(Equipo equipo) {
-		Optional op = equiposRepo.findById(equipo.getCodigo());
+		Optional op = equiposRepo.findById(equipo.getCodigo_equipo());
 		if(op.isPresent()) {
 			return equiposRepo.save(equipo);
 		}

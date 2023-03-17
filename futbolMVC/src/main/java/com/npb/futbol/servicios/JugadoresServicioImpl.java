@@ -22,4 +22,15 @@ public class JugadoresServicioImpl implements IJugadoresServicio {
 		return jugadorRepo.save(jugador);
 	}
 
+	@Override
+	public void deleteJugador(int id) {
+		jugadorRepo.deleteById(id);
+		
+	}
+
+	@Override
+	public Jugador findById(int id) {
+		return jugadorRepo.getReferenceById(id);
+	}
+
 }
